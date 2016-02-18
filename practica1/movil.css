@@ -1,0 +1,45 @@
+body{
+	background-image: url("piano.jpg");
+	text-align: center;
+	}
+
+header{
+	background-color: lightgrey;
+	border:10px solid red;
+	margin:20px;
+	padding: 15px;
+	text-align: center;
+}
+
+#navegador{
+	text-align: center;
+	background-color: lightgrey;
+	border:10px solid red;
+	margin:20px;
+	padding: 15px;
+	font-size: 20px;
+	display: block;
+
+}
+
+table{
+	text-align: center;
+	width: 100%;
+	margin:20px;
+	border-collapse: collapse;
+	border: 5px solid red;
+	background-color: lightgrey;
+
+}
+
+
+
+footer{
+	background-color: lightgrey;
+	border:10px solid red;
+	margin:20px;
+	padding: 15px;
+	text-align: center;
+	display: none;
+
+}
