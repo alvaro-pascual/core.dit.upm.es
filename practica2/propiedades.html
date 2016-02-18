@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>CORE2016 P2</title>
+	<link rel="stylesheet" type="text/css" href="normal.css" media="(min-width:480px)">
+	<link rel="stylesheet" type="text/css" href="movil.css" media="(max-width:480px)">
+	
+	<button id="navegacion" onclick="p1()">Práctica 1</button>
+	<button id="navegacion2">Práctica 2</button>
+
+	<h1 id="header">Objeto de JavaScript</h1>
+</head>
+<body>
+
+<div id="otro"></div>
+
+<div id="main"></div>
+
+<footer>
+	<p id="autor"> By Álvaro Pascual Legido </p>
+	<a id="mail" href="mailto:alvaro.pascual.legido@alumnos.upm.es"> alvaro.pascual.legido@alumnos.upm.es </a>
+</footer>
+
+<script type="text/javascript">
+
+window.onload = function(){
+	generarTabla();
+}
+
+
+	function generarTabla(){
+
+		var otroObjecto = "<p>Haga click en el botón para introducir el nombre de otro objeto JavaScript.</p>"
+			otroObjecto += "<button onclick='functionTabla()''>Otro Objeto JavaScript</button>"
+			
+
+			otro.innerHTML = otroObjecto;
+
+		var objetoJS = document.getElementById("header");
+		var main = document.getElementById("main");
+		obtenerObjetoJS();
+		var tabla = "<table id='tabla'><tr><th>Nombre de la propiedad</th><th>Valor</th></tr>"
+	
+		if(typeof objetoJavaScript == "string"){
+			objetoJS.innerHTML = "Objeto solicitado: " + objetoJavaScript;
+
+			var objetoSeleccionado = objetoJavaScript.replace("this.","");
+			var objeto = window[objetoSeleccionado];
+			if(typeof objeto == "undefined"){ main.innerHTML = "No se ha encontrado el objeto"}
+			else if(typeof objeto != "object"){main.innerHTML = "No ha seleccionado un objeto, es una variable de tipo " + (typeof objeto)}
+			else{
+				for(var i in objeto){
+					if((typeof objeto[i] === "function") || (objeto[i] instanceof Object)){
+						tabla += ("<tr><td>" +i+ "</td><td>No imprimible (tipo object)</td></tr>")
+					}else{
+						tabla += ("<tr><td>" +i+ "</td><td>" +objeto[i]+ "</td></tr>")
+					}
+				}
+				tabla += "</table>";
+				main.innerHTML = tabla;
+			}
+		}
+	}
+
+function functionTabla(){
+				generarTabla();
+
+			}
+
+function obtenerObjetoJS(){
+	return objetoJavaScript = prompt("Introduzca el nombre de un objeto JavaScript", "window");
+
+}
+
+
+function p1(){
+  location.href="https://cokeweb.neocities.org/Practica1/index.html";
+}
+
+</script>
+
+</body>
+</html>
