@@ -1,0 +1,173 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript"
+			src="http://code.jquery.com/jquery-2.2.0.min.js">
+	</script>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="normal.css" media="(min-width:480px)">
+	<link rel="stylesheet" type="text/css" href="movil.css" media="(max-width:480px)">
+
+<script type="text/javascript">
+	
+	var numero = undefined;
+	var op = undefined;
+	
+	$(function(){
+
+		//Funcionalidad de pinchar en el imput con id="pantalla"
+		$("#pantalla").on("click", function(){
+			$("#pantalla").val("");
+		});
+		
+		//Funcionalidad de la suma
+		$("#suma").on("click", function(){
+			var num = $("#pantalla");
+			if(numero === undefined){
+				numero = +num.val();
+			}
+			else if(op === "suma"){
+				numero = (numero + (+num.val()));
+			}
+			else{
+				numero = (numero - (+num.val()));
+			}
+			op = "suma";
+		});
+
+		//Funcionalidad de la resta
+		$("#resta").on("click", function(){
+			var num = $("#pantalla");
+			if(numero === undefined){
+				numero = +num.val();
+			}
+			else if(op === "suma"){
+				numero = (numero + (+num.val()));
+			}
+			else{
+				numero = (numero - (+num.val()));
+			}
+			
+			op = "resta";
+		});
+
+		//Funcionalidad del igual
+		$("#igual").on("click", function(){
+			var num = $("#pantalla");
+			if(op === undefined){
+				if(num.val() !== undefined && num.val() !== ""){num.val(num.val());}
+				else{num.val("Error");}
+			}
+
+			else if(op === "suma"){
+				num.val(numero + (+num.val()));
+				numero = undefined;
+				op = undefined;
+			}
+			else if(op === "resta"){
+				num.val(numero - (+num.val()));
+				numero = undefined;
+				op = undefined;
+			}
+			else{num.val("Error");}
+		});
+
+		//Funcionalidad de elevar al cuadrado
+		$("#cuadrado").on("click", function(){
+			var num = $("#pantalla");
+			num.val(num.val() * num.val());
+		});
+
+		//Funcionalidad del inverso
+		$("#inverso").on("click", function(){
+			var num = $("#pantalla");
+			num.val(1 / num.val());
+		});
+
+		//Funcionalidad de la raiz cuadrada
+		$("#raiz").on("click", function(){
+			var num = $("#pantalla");
+			num.val(Math.sqrt(num.val()));
+		});
+
+		//Funcionalidad de la parte entera
+		$("#pentera").on("click", function(){
+			var num = $("#pantalla");
+			num.val(Math.round(num.val()));
+		});
+
+		//Funcionalidad de la potencia de dos
+		$("#potencia2").on("click", function(){
+			var num = $("#pantalla");
+			num.val(Math.pow(2, num.val()));
+		})
+
+		//Funcionalidad del factoral
+		$("#factorial").on("click", function(){
+			var num = $("#pantalla");
+			var resultado = 1;
+			if (num.val() < 0){num.val("Error");}
+			else if(num.val() - Math.floor(num.val()) == 0){
+				if (num.val() == 1 || num.val() == 0){
+					num.val("1");
+				}
+				else{
+					for(var i = 1; i<(+num.val())+1; i++){
+						resultado *= i;
+					}
+					num.val(resultado);
+				}
+			}
+			else num.val("Error");
+			
+						
+		});
+
+		//Funcionalidad de limpiar
+		$("#limpiar").on("click", function(){
+			$("#pantalla").val("");
+			numero = undefined;
+			op = undefined;
+		});
+	
+	});
+
+	
+
+</script>
+
+	<title>CORE2016 P3</title>
+</head>
+<body>
+<header>
+	<h1>Buenos días, bienvenido a la calculadora de Álvaro Pascual Legido <a href="mailto:alvaro.pascual.legido@alumnos.upm.es"> alvaro.pascual.legido@alumnos.upm.es </a></h1>
+</header>
+
+<section id="main">
+<p><b>Número: </b><input id="pantalla"></input>
+</section>
+<div id="principal">
+	<div id="fila1">
+		<button id="suma">+</button>
+		<button id="resta">-</button>
+		<button id="cuadrado">x<sup>2</sup></button>
+	</div>
+	<div id="fila2">
+		<button id="inverso">1/x</button>
+		<button id="raiz">&#8730(x)</button>
+		<button id="pentera">parte entera(x)</button>
+	</div>
+	<div id="fila3">
+		<button id="potencia2">2<sup>x</sup></button>
+		<button id="factorial">x!</button>
+		<button id="otro"></button>
+	</div>
+	<div id="fila4">
+		<button id="limpiar">Limpiar</button>
+		<button id="igual">=</button>
+		
+	</div>
+</div>
+
+</body>
+</html>
