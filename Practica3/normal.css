@@ -1,0 +1,40 @@
+body{
+	text-align: center;
+}
+
+button{
+	text-align: center;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 15px;
+    border-radius: 8px;
+    
+    margin-bottom: 5px;
+    height: 100%;
+    width: 30%;
+}
+
+button:hover{
+	background-color: #337E35;
+}
+
+#fila1{
+	height: 100px;
+	width: 300px;
+}
+#fila2{
+	height: 100px;
+	width: 300px;
+}
+#fila3{
+	height: 100px;
+	width: 300px;
+}
+#fila4{
+	height: 100px;
+	width: 300px;
+}
